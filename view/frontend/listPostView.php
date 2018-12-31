@@ -1,0 +1,28 @@
+<?php $title = 'Mon blog'; ?>
+<?php ob_start(); ?>
+<h1>Mon super blog !</h1>
+<p>Derniers billets du blog :</p>
+ 
+<?php 
+while ($data = $posts->fetch())
+{
+?>
+    <div class="news">
+        <h3>
+            <?php echo htmlspecialchars($data['title_news']); ?>
+            <em>le <?php echo $data['creation_date_news_fr']; ?></em>
+        </h3>
+    
+        <p>
+            <?= nl2br(htmlspecialchars($data['content_news'])) ?>
+            <br />
+            <em><a href="index.php?action=post&amp;id=<?php echo $data['id']; ?>">Commentaires</a></em>
+        </p>
+     </div>
+<?php
+} 
+$posts->closeCursor();
+?>
+<?php $content = ob_get_clean(); ?>
+
+<?php require('view/frontend/template.php'); ?>
