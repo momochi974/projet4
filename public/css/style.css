@@ -1,27 +1,48 @@
-h1, h3
-{
-    text-align:center;
-}
 h3
 {
-    background-color:black;
-    color:white;
+    background-color:rgba(163, 181, 225, 1);
+    color:#296478;
     font-size:0.9em;
     margin-bottom:0px;
+    text-align: center;
+}
+html body {
+
+    background-color:#bbbace;
+    padding:20px;
+}
+h2 {
+    text-align: center;
 }
 .news p
 {
-    background-color:#CCCCCC;
+    background-color: rgba(163, 181, 225, 0.6);
     margin-top:0px;
+    color: #296478;
 }
-.news
-{
-    width:70%;
-    margin:auto;
-}
-
 a
 {
     text-decoration: none;
     color: blue;
+}
+div img#imgHome {
+    width: 100%;    
+    position: relative;
+}
+h1#title {
+    position: absolute;
+    top: 40%;
+    left:20%;
+    color: #296478;
+    font-size: 4em;
+    background-color: rgba(255, 255, 255, 0.61);
+    border-radius: 25px;
+    padding: 0px 25px;
+    max-width: 55%;
+}
+header + div {
+    padding-top: 50px;
+}
+.container-fluid .navbar-nav  {
+    float: right;
 }

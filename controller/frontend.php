@@ -34,3 +34,25 @@ function addComment($postId, $author, $comment)
         header('Location: index.php?action=post&id=' . $postId);
     }
 }
+function showHome(){
+	$postManager = new PostManager();
+	$lastPost = $postManager->getLastPost();
+	require('view/frontend/home.php');
+}
+function isAdmin(){
+	if (isset($_SESSION['pseudo'])){
+        $abc=$_SESSION['pseudo'];
+    }
+    else {
+        $abc="s'identifié";
+    }
+    return $abc;
+}
+function showAuth(){
+	if (isset($_SESSION['pseudo'])){
+		require('admin.php');
+	}
+	else {
+	require('view/frontend/auth.php');
+	}
+}

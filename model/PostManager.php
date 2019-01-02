@@ -14,5 +14,11 @@ class PostManager extends Manager
     	$req->execute(array($postId));
     	$post = $req->fetch();
     	return $post;
-	}		
+	}	
+	public function getLastPost(){
+		$db = $this->dbConnect();
+		$req = $db->query('SELECT id, title_news, content_news, DATE_FORMAT(creation_date_news, \'%d/%m/%Y à %Hh%imin%ss\') AS creation_date_news_fr FROM news ORDER BY creation_date_news DESC LIMIT 0, 1');
+		$lastPost = $req->fetch();
+		return $lastPost;		
+	}	
 }

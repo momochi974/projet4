@@ -1,7 +1,12 @@
 <?php
 require('controller/frontend.php');
+require('controller/backend.php');
 try {
-	if (isset($_GET['action'])) {
+	if (isset($_POST['pseudo']) && isset($_POST['pass'])){
+
+		verifyPass($_POST['pseudo'],$_POST['pass']);
+	}
+	elseif (isset($_GET['action'])) {
 	    if ($_GET['action'] == 'listPosts') {
 	        listPosts();
 	    }
@@ -26,9 +31,12 @@ try {
 	            throw new Exception('Aucun identifiant de billet envoyé');
 	        }
 	    }
+	    elseif ($_GET['action'] == 'auth'){	    	
+	    	showAuth();
+	    }	    
 	}
 	else {
-	    listPosts();
+	    showHome();	   
 	}
 }
 catch(Exception $e) {

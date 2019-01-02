@@ -15,3 +15,4 @@ class CommentManager extends Manager
 	    return $affectedLines;
 	}
 }
+
